@@ -1,0 +1,35 @@
+MOMO for HIBERNATE
+  public static void main(String[] args) {
+        Configuration configuration = new Configuration().addAnnotatedClass(Client.class).
+                addAnnotatedClass(Insurance_contract.class);
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+
+
+        try {
+            session.beginTransaction();
+            String[] insuranceTypes = {"КАСКО", "ОСАГО", "Страхование жизни", "Страхование от несчастных случаев", "Страхование имущества", "Страхование гражданской ответственности", "Страхование от ущерба", "Cтрахование ипотеки"};
+            Faker faker = new Faker(new Locale("ru"));
+            String fake = faker.options().option(insuranceTypes);
+
+            Client client = new Client(faker.name().fullName(), faker.number().numberBetween(18, 65));
+
+            Insurance_contract insurance_contract = new Insurance_contract(fake);
+            Insurance_contract insurance_contract2 = new Insurance_contract(fake);
+            /////////////////////////////////////////////////////
+
+
+
+            client.addInsurance_Contract(insurance_contract);
+            client.addInsurance_Contract(insurance_contract2);
+
+
+            session.save(client);
+
+            //            session.save(INS);
+
+
+            session.getTransaction().commit();
+        } finally {
+            session.close();
+        }
