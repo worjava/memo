@@ -1,0 +1,51 @@
+
+
+sudo /mnt/c/Kafka/kafka_2.13-3.1.0/bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
+команда чтения спика консюмеров
+
+/mnt/c/Kafka/kafka_2.13-3.1.0/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic testTopic
+консольный потребитель который будет слушать сообщения
+
+sudo /mnt/c/Kafka/kafka_2.13-3.1.0/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic testTopic
+продюсер который будет отравлять сообщения в топик
+
+это базовый возможно на низкомй уровне создания
+
+ sudo /mnt/c/Kafka/kafka_2.13-3.1.0/bin/kafka-topics.sh --delete --bootstrap-server localhost:9092 --topic testTopic
+команда удаления топика
+
+
+
+
+
+
+sudo /mnt/c/Kafka/kafka_2.13-3.1.0/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --topic testTopic --partitions 3 --replication-factor 1
+команда создания топика
+
+
+sudo /mnt/c/Kafka/kafka_2.13-3.1.0/bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+команда отображения списка топиков 
+
+
+sudo /mnt/c/Kafka/kafka_2.13-3.1.0/bin/zookeeper-server-start.sh /mnt/c/Kafka/kafka_2.13-3.1.0/config/zookeeper.properties
+команда запуска зукипера
+
+sudo /mnt/c/Kafka/kafka_2.13-3.1.0/bin/kafka-server-start.sh /mnt/c/Kafka/kafka_2.13-3.1.0/config/server.properties
+запуск сервера кафки
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

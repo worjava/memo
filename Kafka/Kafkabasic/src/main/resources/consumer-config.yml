@@ -1,0 +1,5 @@
+bootstrapServers: localhost:9092
+groupId: my-second-application
+topic: demo_java
+keyDeserializer: org.apache.kafka.common.serialization.StringDeserializer
+valueDeserializer: org.apache.kafka.common.serialization.StringDeserializer
